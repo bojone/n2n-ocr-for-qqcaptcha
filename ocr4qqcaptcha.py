@@ -7,7 +7,7 @@ from keras.utils.np_utils import to_categorical
 
 
 imgs = glob.glob('sample/*.jpg')
-img_size = misc.imread(imgs[0]).shape
+img_size = misc.imread(imgs[0]).shape #这里是(53, 129, 3)
 data = np.array([misc.imresize(misc.imread(i), img_size).T for i in imgs])
 data = 1 - data.astype(float)/255.0
 target = np.array([[ord(i)-ord('a') for i in j[7:11]] for j in imgs])
