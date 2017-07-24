@@ -28,7 +28,7 @@ def data_generator(data, batch_size): #样本生成器，节省内存
         x,y = [],[]
         for img in batch:
             x.append(misc.imresize(misc.imread(img), img_size))
-            y.append([ord(i)-ord('a') for i in img[7:11]])
+            y.append([ord(i)-ord('a') for i in img[-8:-4]])
         x = preprocess_input(np.array(x).astype(float))
         y = np.array(y)
         yield x,[y[:,i] for i in range(4)]
